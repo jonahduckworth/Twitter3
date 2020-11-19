@@ -29,7 +29,6 @@
         color: #FFFFFF;
         background-color: #14171A;
         overflow-x: hidden;
-      /*  padding-top: 9px; */
     }
     .sidebar a {
         padding: 6px 8px 6px 16px;
@@ -43,7 +42,6 @@
     }
     .main {
         margin-left: 160px; /* Same as the width of the sidenav */
-      /*  padding: 0px 10px; */
     }
     @media screen and (max-height: 450px) {
        /* .sidebar {padding-top: 15px;}*/
@@ -102,6 +100,20 @@
         }
     }    
 
+    /* modal window */
+    .modal-window {
+        display: none;
+        background-color: #AAB8C2;
+        width: 300px; height: 250px; border: 1px solid black;
+        position: absolute; top: 50px; left: calc(50% - 150px);
+        z-index: 999;
+        padding: 10px;
+    }
+    .modal-label {
+        display: inline-block;
+        width: 80px;
+    }
+
     </style>
 
 </head>
@@ -121,7 +133,8 @@
             </form>
             
         </div>
-
+        
+        <!-- search button, sign out button, welcome @user -->
         <button type="button" class="btn" id="search-button">Submit</button>
         <button type="button" class="btn btn-danger" id="sign-out" style="float:right; margin-top:9px; margin-right:10px;">Sign Out</button>
         <p style="color:#1DA1F2; float:right; padding-top:16px; padding-right:6px">Welcome, <?php echo $_SESSION['username']; ?> </p>
@@ -137,13 +150,16 @@
         <a href="#clients">Notifications</a>
         <a href="#contact">Edit Profile</a>
         <br>
-        <button type="button" class="btn btn-primary" style="width:160px">Tweet</button>
+        <button type="button" class="btn btn-primary" id="postTweet" data-toggle="modal" data-target="#modal-post"  style="width:160px">Tweet</button>
     </div>
 
     <div class="main">
         <h2>Sidebar with Icons</h2>
     </div>
 
+    <!-- tweet modal -->
+
+    <!-- sign out form -->
     <form method="post" action="twitter3.php" id="form-sign-out" style="display:none">
         <input type="hidden" name="page" value="HomePage">
         <input type="hidden" name="command" value="SignOut">
@@ -160,5 +176,16 @@
     $('#sign-out').click(function() {
         $('#form-sign-out').submit();
     })
+
+    $('#post-submit').click(post_tweet);
+    function post_tweet() {
+        var url = "twitter3.php";
+        var query = { page: 'HomePage', command: 'PostTweet', tweet: $('#tweet').val()};
+        $.post(url, query,
+            function(data) {
+                var result = JSON.parse(data);
+                $('#pane-result').html(result);
+            });
+    }
 
 </script>
