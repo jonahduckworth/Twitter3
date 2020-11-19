@@ -13,10 +13,6 @@
 <style>
 
 /* split view */
-body {
-  font-family: Arial;
-  color: white;
-}
 .split {
   height: 100%;
   width: 50%;
@@ -68,7 +64,7 @@ body {
 
         <img src='logo.png' width='420px' height='310px'>
         <br>
-        <h1>Twitter3</h1>
+        <h1 style='color:#FFFFFF'>Twitter3</h1>
 
     </div>
     </div>
@@ -86,11 +82,9 @@ body {
 
             <!-- input fields -->
             <label class='modal-label'>Username:</label>
-            <input type='text' name='username' required>
-            <br>
+            <input type='text' name='username' required> <?php if (!empty($error_msg_username)) echo $error_msg_username; ?> <br>
             <label class='modal-label'>Password:</label>
-            <input type='password' name='password' required>
-            <br>
+            <input type='password' name='password' required> <?php if (!empty($error_msg_password)) echo $error_msg_password; ?> <br>
 
             <!-- submit button -->
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -115,17 +109,17 @@ body {
 
         <!-- body -->
         <div class="modal-body">
-        <form id="form-signin" method="POST" action="twitter3.php">
+        <form id="form-sign-up" method="POST" action="twitter3.php">
             <input type='hidden' name='page' value='StartPage'> 
             <input type='hidden' name='command' value='SignUp'> 
 
             <!-- input fields -->
             <div class="form-group">
                 <label for="username" style='color:black'>Username:</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" class="form-control" id="username" name="username"> <?php if (!empty($join_error_msg_username)) echo $join_error_msg_username; ?>
             </div>
             <div class="form-group">
-                <label for="password" style='color:black'>Password:</label>
+                <label for="password" style='color:black'>Password:</label> 
                 <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="form-group">
@@ -150,10 +144,21 @@ body {
 
 <script>
 
+    <?php
+    //    if($display_type == 'signup')
+    //        echo 'show_modal();';
+    //    else
+    //        ;
+    ?>
+
     $(document).ready(function() {
         $('#register').click(function() {
-            $('#sign-up-modal').css('display', 'block');
+            show_modal();
         });
     });
+
+    function show_modal() { 
+        $('#sign-up-modal').css('display', 'block');
+    }
 
 </script>
