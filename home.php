@@ -123,7 +123,7 @@
         </div>
 
         <button type="button" class="btn" id="search-button">Submit</button>
-        <button type="button" class="btn btn-danger" style="float:right; margin-top:9px; margin-right:10px;">Sign Out</button>
+        <button type="button" class="btn btn-danger" id="sign-out" style="float:right; margin-top:9px; margin-right:10px;">Sign Out</button>
         <p style="color:#1DA1F2; float:right; padding-top:16px; padding-right:6px">Welcome, <?php echo $_SESSION['username']; ?> </p>
 
     </div>
@@ -144,5 +144,21 @@
         <h2>Sidebar with Icons</h2>
     </div>
 
+    <form method="post" action="twitter3.php" id="form-sign-out" style="display:none">
+        <input type="hidden" name="page" value="HomePage">
+        <input type="hidden" name="command" value="SignOut">
+    </form>
+
 </body>
+
+
+
 </html>
+
+<script>
+
+    $('#sign-out').click(function() {
+        $('#form-sign-out').submit();
+    })
+
+</script>
