@@ -77,7 +77,7 @@
         <p>Sign in to enter</p>
         <br>            
         <form method='post' action='twitter3.php'>
-            <input type='hidden' name='page' value='StartPage'>
+            <input type='hidden' name='page' value='SignInPage'>
             <input type='hidden' name='command' value='SignIn'>
 
             <!-- input fields -->
@@ -110,7 +110,7 @@
         <!-- body -->
         <div class="modal-body">
         <form id="form-sign-up" method="POST" action="twitter3.php">
-            <input type='hidden' name='page' value='StartPage'> 
+            <input type='hidden' name='page' value='SignInPage'> 
             <input type='hidden' name='command' value='SignUp'> 
 
             <!-- input fields -->
