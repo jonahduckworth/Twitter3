@@ -161,23 +161,26 @@
     <div class="modal fade" id="modal-send-tweet" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title">What's happening?</h2>
+                
+                <div class="modal-header">
+                    <h2 class="modal-title">What's happening?</h2>
+                </div>
+                
+                <div class="modal-body">
+                    <input type="hidden" name="page" value="HomePage">
+                    <input type="hidden" name="command" value="SendTweet">
+                    <div class="form-group">
+                        <textarea col="50" rows="5" class="form-control" id="tweet" name="tweet" placeholder="Enter Tweet here..."></textarea>
                     </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="page" value="HomePage">
-                        <input type="hidden" name="command" value="SendTweet">
-                        <div class="form-group">
-                            <label class="control-label" for="tweet">Tweet:</label> 
-                            <textarea col="50" rows="5" class="form-control" id="tweet" name="tweet" placeholder="Enter Tweet here..."></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="form-group"> 
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button" id="tweet-submit" class="btn btn-default" data-dismiss="modal">Submit</button>
-                        </div>
-                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                <div class="form-group"> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="tweet-submit" class="btn btn-default" data-dismiss="modal">Submit</button>
+                </div>
+                </div>
+
             </div>
         </div>
     </div>
