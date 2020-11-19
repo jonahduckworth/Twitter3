@@ -150,7 +150,7 @@
         <a href="#clients">Notifications</a>
         <a href="#contact">Edit Profile</a>
         <br>
-        <button type="button" class="btn btn-primary" id="postTweet" data-toggle="modal" data-target="#modal-post"  style="width:160px">Tweet</button>
+        <button type="button" class="btn btn-primary" id="sendTweet" data-toggle="modal" data-target="#modal-send-tweet"  style="width:160px">Tweet</button>
     </div>
 
     <div class="main">
@@ -158,6 +158,29 @@
     </div>
 
     <!-- tweet modal -->
+    <div class="modal fade" id="modal-send-tweet" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">What's happening?</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="page" value="HomePage">
+                        <input type="hidden" name="command" value="SendTweet">
+                        <div class="form-group">
+                            <label class="control-label" for="tweet">Tweet:</label> 
+                            <textarea col="50" rows="5" class="form-control" id="tweet" name="tweet" placeholder="Enter Tweet here..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group"> 
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" id="tweet-submit" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
 
     <!-- sign out form -->
     <form method="post" action="twitter3.php" id="form-sign-out" style="display:none">
@@ -177,10 +200,10 @@
         $('#form-sign-out').submit();
     })
 
-    $('#post-submit').click(post_tweet);
-    function post_tweet() {
+    $('#tweet-submit').click(send_tweet);
+    function send_tweet() {
         var url = "twitter3.php";
-        var query = { page: 'HomePage', command: 'PostTweet', tweet: $('#tweet').val()};
+        var query = { page: 'HomePage', command: 'SendTweet', tweet: $('#tweet').val()};
         $.post(url, query,
             function(data) {
                 var result = JSON.parse(data);

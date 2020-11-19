@@ -75,8 +75,8 @@ else if ($_POST['page'] == 'HomePage')
                                                                                                      
     $command = $_POST['command'];                                                                   
     switch($command) {                                                                              
-        case 'PostAQuestion':                                                                       
-            $result = post_a_question($_POST['question'], $_SESSION['username']);                   
+        case 'SendTweet':                                                                       
+            $result = send_tweet($_POST['tweet'], $_SESSION['username']);                   
             if ($result)                                                                            
                 $result = "Succesful!";                                                             
             else                                                                                    

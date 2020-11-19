@@ -1,11 +1,11 @@
 <?php
 $conn = mysqli_connect('localhost', 'jduckworthf20', 'jduckworthf20424', 'C354_jduckworthf20');
  
-function check_validity($u, $p)
+function check_validity($username, $password)
 { 
     global $conn;
 
-    $sql = "select * from Users where Username = '$u' and Password = '$p'";
+    $sql = "select * from Users where Username = '$username' and Password = '$password'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0)
         return true;
@@ -13,11 +13,11 @@ function check_validity($u, $p)
         return false;
 } 
  
-function check_existence($u)
+function check_existence($username)
 { 
     global $conn;
 
-    $sql = "select * from Users where Username = '$u'";
+    $sql = "select * from Users where Username = '$username'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0)
         return true;
@@ -25,23 +25,23 @@ function check_existence($u)
         return false;
 } 
  
-function join_a_user($u, $p, $email)
+function join_a_user($username, $password, $email)
 { 
     global $conn;
 
     $date = date("Ymd");
  
-    $sql = "Insert into Users values (NULL, '$u', '$p', '$email', $date)";
+    $sql = "Insert into Users values (NULL, '$username', '$password', '$email', $date)";
     $result = mysqli_query($conn, $sql);
  
     return $result;
 } 
  
-function get_user_id($u)
+function get_user_id($username)
 { 
      global $conn;
  
-    $sql = "select * from Users where Username = '$u'";
+    $sql = "select * from Users where Username = '$username'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -49,5 +49,18 @@ function get_user_id($u)
     } else
         return -1;
 } 
+
+function send_tweet($tweet, $username)
+{
+    global $conn;
  
+    $uid = get_user_id($username);
+    $current_date = date("Ymd");
+    $sql = "insert into Tweets values(NULL, '$tweet', $uid, $current_date)";
+    $result = mysqli_query($conn, $sql);
+    if ($result)
+        return true;
+    else
+        return false;
+}
 ?>
