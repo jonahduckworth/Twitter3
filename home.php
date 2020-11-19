@@ -1,7 +1,14 @@
+<?php                                                                                               
+    if (!isset($_SESSION['SignIn'])) {                                                              
+        include('login.php');                                                              
+        exit();                                                                                     
+    }                                                                                               
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -51,24 +58,7 @@
     .topnav {
         overflow: hidden;
         background-color: #14171A;
-    }/*
-    .topnav a {
-        float: left;
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
     }
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-    .topnav a.active {
-        background-color: #2196F3;
-        color: white;
-    } */
     .topnav .search-container {
         float: left;
         margin-left: 170px;
@@ -134,6 +124,7 @@
 
         <button type="button" class="btn" id="search-button">Submit</button>
         <button type="button" class="btn btn-danger" style="float:right; margin-top:9px; margin-right:10px;">Sign Out</button>
+        <p style="color:#1DA1F2; float:right; padding-top:16px; padding-right:6px">Welcome, <?php echo $_SESSION['username']; ?> </p>
 
     </div>
 
