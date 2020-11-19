@@ -3,56 +3,56 @@
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<style>
+    <style>
 
-/* split view */
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-.left {
-  left: 0;
-  background-color: #14171A;
-}
-.right {
-  right: 0;
-  background-color: #1DA1F2;
-}
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    /* split view */
+    .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+    .left {
+        left: 0;
+        background-color: #14171A;
+    }
+    .right {
+        right: 0;
+        background-color: #1DA1F2;
+    }
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 
-/* modal window */ 
-.modal-window { 
-    display: none;
-    background-color: #AAB8C2;
-    width: 300px; height: 250px; border: 1px solid black;
-    position: absolute; top: 50px; left: calc(50% - 150px);
-    z-index: 999;
-    padding: 10px;
- } 
- .modal-label { 
-    display: inline-block;
-    width: 80px;
- } 
+    /* modal window */ 
+    .modal-window { 
+        display: none;
+        background-color: #AAB8C2;
+        width: 300px; height: 250px; border: 1px solid black;
+        position: absolute; top: 50px; left: calc(50% - 150px);
+        z-index: 999;
+        padding: 10px;
+    } 
+    .modal-label { 
+        display: inline-block;
+        width: 80px;
+    } 
 
-</style>
+    </style>
 
 </head>
 
