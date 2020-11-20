@@ -84,8 +84,8 @@ else if ($_POST['page'] == 'HomePage')
                                                                                                      
             echo json_encode($result);                                                              
             break;                                                                                  
-        case 'SearchQuestions':                                                                     
-            $data = search_questions($_POST['searchTerm']);                                         
+        case 'SearchTweet':                                                                     
+            $data = search_tweet($_POST['searchTweet']);                                         
             echo json_encode($data);                                                                
             break;                                                                                  
         case 'SignOut':                                                                             

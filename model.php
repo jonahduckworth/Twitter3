@@ -56,11 +56,37 @@ function send_tweet($tweet, $username)
  
     $uid = get_user_id($username);
     $current_date = date("Ymd");
-    $sql = "insert into Tweets values(NULL, '$tweet', $uid, $current_date)";
+    $sql = "insert into Tweets values(NULL, '$tweet', '$username', $current_date)";
     $result = mysqli_query($conn, $sql);
     if ($result)
         return true;
     else
         return false;
+}
+
+function search_tweet($term)
+{ 
+    global $conn;
+
+    $sql = "select * from Tweets where Tweet like '%$term%'";
+    $result = mysqli_query($conn, $sql);
+    $data = [];
+    while($row = mysqli_fetch_assoc($result))
+        $data[] = $row;
+    return $data;
+}
+
+function get_user_name($uid)
+{
+    global $conn;
+
+    $sql = "select * from Users where Id = $uid";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) == 0)
+        return "";
+    else {
+        $row = mysqli_fetch_assoc($result);
+        return($row['Username']);
+    }
 }
 ?>
